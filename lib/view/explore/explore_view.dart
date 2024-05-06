@@ -1,5 +1,6 @@
 import 'package:bach_hoa_xanh/common_widget/explore_cell.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:bach_hoa_xanh/view/explore/explore_detail_view.dart';
+import 'package:bach_hoa_xanh/view/explore/search_view.dart';
 import 'package:flutter/material.dart';
 import 'package:bach_hoa_xanh/common/color_extension.dart';
 
@@ -67,31 +68,39 @@ class ExploreViewState extends State<ExploreView> {
         children: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Container(
-              height: 45,
-              decoration: BoxDecoration(
-                  color: const Color(0xffF2F3F2),
-                  borderRadius: BorderRadius.circular(15)),
-              alignment: Alignment.center,
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(13.0),
-                    child: Image.asset(
-                      "assets/imgs/search.png",
-                      width: 20,
-                      height: 20,
+            child: InkWell(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: ((context) => const SearchView())));
+              },
+              child: Container(
+                height: 45,
+                decoration: BoxDecoration(
+                    color: const Color(0xffF2F3F2),
+                    borderRadius: BorderRadius.circular(15)),
+                alignment: Alignment.center,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(13.0),
+                      child: Image.asset(
+                        "assets/imgs/search.png",
+                        width: 20,
+                        height: 20,
+                      ),
                     ),
-                  ),
-                  Text(
-                    "Search Store",
-                    style: TextStyle(
-                        color: DColor.secondaryText,
-                        fontSize: 14,
-                        fontWeight: FontWeight.w600),
-                  ),
-                ],
+                    Text(
+                      "Search Store",
+                      style: TextStyle(
+                          color: DColor.secondaryText,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w600),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
@@ -110,10 +119,17 @@ class ExploreViewState extends State<ExploreView> {
                 ),
                 itemCount: findProductView.length,
                 itemBuilder: (context, index) {
-                  var pObj = findProductView[index] as Map? ?? {};
+                  var eObj = findProductView[index] as Map? ?? {};
                   return ExploreCell(
-                    pObj: pObj,
-                    onPressed: () {},
+                    pObj: eObj,
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ExploreDetaiView(
+                                    eObj: eObj,
+                                  )));
+                    },
                   );
                 }),
           ),

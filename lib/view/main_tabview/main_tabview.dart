@@ -1,6 +1,9 @@
 import 'package:bach_hoa_xanh/common/color_extension.dart';
+import 'package:bach_hoa_xanh/view/account/account_view.dart';
 import 'package:bach_hoa_xanh/view/explore/explore_view.dart';
+import 'package:bach_hoa_xanh/view/favourite/favourite_view.dart';
 import 'package:bach_hoa_xanh/view/home/home_view.dart';
+import 'package:bach_hoa_xanh/view/my_cart/my_cart_view.dart';
 import 'package:flutter/material.dart';
 
 class MainTabView extends StatefulWidget {
@@ -37,9 +40,9 @@ class _MainTabViewState extends State<MainTabView>
       body: TabBarView(controller: controller, children: [
         const HomeView(),
         const ExploreView(),
-        Container(),
-        Container(),
-        Container(),
+        const MyCartView(),
+        const FavouriteView(),
+        const AccountView(),
       ]),
       bottomNavigationBar: Container(
         decoration: const BoxDecoration(

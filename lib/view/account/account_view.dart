@@ -1,4 +1,5 @@
 import 'package:bach_hoa_xanh/common/color_extension.dart';
+import 'package:bach_hoa_xanh/common_widget/account_row.dart';
 import 'package:flutter/material.dart';
 
 class AccountView extends StatefulWidget {
@@ -66,7 +67,76 @@ class _AccountViewState extends State<AccountView> {
             const Divider(
               color: Colors.black26,
               height: 1,
-            )
+            ),
+            AccountRow(
+                title: "Orders",
+                icon: "assets/imgs/a_order.png",
+                onPressed: () {}),
+            AccountRow(
+                title: "My Details",
+                icon: "assets/imgs/a_my_detail.png",
+                onPressed: () {}),
+            AccountRow(
+                title: "Delivery Address",
+                icon: "assets/imgs/a_delivery_address.png",
+                onPressed: () {}),
+            AccountRow(
+                title: "Promo Code",
+                icon: "assets/imgs/a_promocode.png",
+                onPressed: () {}),
+            AccountRow(
+                title: "Notifications",
+                icon: "assets/imgs/a_noitification.png",
+                onPressed: () {}),
+            AccountRow(
+                title: "Helps",
+                icon: "assets/imgs/a_help.png",
+                onPressed: () {}),
+            AccountRow(
+                title: "Abouts",
+                icon: "assets/imgs/a_about.png",
+                onPressed: () {}),
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  MaterialButton(
+                    onPressed: () {},
+                    height: 60,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(19)),
+                    minWidth: double.maxFinite,
+                    elevation: 0.1,
+                    color: const Color(0xffF2F3F2),
+                    child: Stack(
+                      alignment: Alignment.centerRight,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              "Log Out",
+                              style: TextStyle(
+                                  color: DColor.primary,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w600),
+                            ),
+                          ],
+                        ),
+                        Container(
+                            padding: const EdgeInsets.symmetric(horizontal: 20),
+                            child: Image.asset(
+                              "assets/imgs/logout.png",
+                              width: 20,
+                              height: 20,
+                            )),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ],
         )),
       ),

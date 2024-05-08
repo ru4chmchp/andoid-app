@@ -1,6 +1,8 @@
 import 'package:bach_hoa_xanh/common/color_extension.dart';
 import 'package:bach_hoa_xanh/common_widget/checkout_row.dart';
 import 'package:bach_hoa_xanh/common_widget/round_button.dart';
+import 'package:bach_hoa_xanh/view/my_cart/error_view.dart';
+import 'package:bach_hoa_xanh/view/my_cart/order_accept_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -90,7 +92,20 @@ class _CheckoutViewState extends State<CheckoutView> {
           ),
           CheckoutRow(
               title: "Promo Code", value: "Pick discount", onPressed: () {}),
-          CheckoutRow(title: "Total Code", value: "\$18.96", onPressed: () {}),
+          CheckoutRow(
+              title: "Total Code",
+              value: "\$18.96",
+              onPressed: () {
+                showDialog(
+                    context: context,
+                    builder: (context) {
+                      return const Dialog(
+                        backgroundColor: Colors.transparent,
+                        insetPadding: EdgeInsets.symmetric(horizontal: 20),
+                        child: ErrorView(),
+                      );
+                    });
+              }),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 15),
             child: RichText(
@@ -131,7 +146,14 @@ class _CheckoutViewState extends State<CheckoutView> {
                   )
                 ])),
           ),
-          RoundButton(title: "Place Ordor", onPressed: () {}),
+          RoundButton(
+              title: "Place Ordor",
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const OrderAcceptView()));
+              }),
           const SizedBox(
             height: 15,
           )
